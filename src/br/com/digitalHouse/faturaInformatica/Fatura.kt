@@ -1,16 +1,13 @@
 package br.com.digitalHouse.faturaInformatica
 
-class Fatura(val numerItem: Int, val descricaoItem: String, var quantidadeVendida: Int, private var precoUnitario: Double) {
-    init{
-        when(quantidadeVendida < 0){
-            true -> quantidadeVendida = 0
-        }
-        when(precoUnitario < 0.0){
-            true -> precoUnitario = 0.0
-        }
-    }
+class Fatura(var itens: MutableList<Item>) {
 
-    fun getTotalFatura(): Double{
-        return quantidadeVendida*precoUnitario
+    fun getTotalFatura():Double{
+        var totalFatura = 0.0
+
+        for(i in 0..itens.size-1){
+            totalFatura += itens[i].qtdItemComp * itens[i].precoUnItem
+        }
+        return totalFatura
     }
 }

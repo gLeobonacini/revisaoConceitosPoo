@@ -1,13 +1,14 @@
 package br.com.digitalHouse.faturaInformatica
 
 fun main(){
-    val mouse = Fatura(1,"Mouse com fio",100,20.50)
-    val teclado = Fatura(2,"Teclado com fio",50,50.00)
-    val caboUSB = Fatura(3,"Carregador de celular",-1,10.00)
-    val webcam = Fatura(4,"Câmera para computador",10,-5.00)
 
-    println(mouse.getTotalFatura())
-    println(teclado.getTotalFatura())
-    println(caboUSB.getTotalFatura())
-    println(webcam.getTotalFatura())
+    val item1 = Item(11,"Mouse",- 8,-55.0)
+    val item2 = Item(22,"Teclado", 1,100.00)
+    val item3 = Item(33, "Webcam", 2, 40.00)
+
+    val listaItens = mutableListOf<Item> (item1, item2,item3)
+
+    val fatura = Fatura(listaItens)
+
+    println(fatura.getTotalFatura())
 }
