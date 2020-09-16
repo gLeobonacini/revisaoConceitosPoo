@@ -13,8 +13,4 @@ class Professor(override val nome: String, override val sobrenome: String, val R
             println("${it.nome} ${it.sobrenome} está presente?")
         }
     }
-    override fun toString(): String {
-
-        return ""
-    }
 }
